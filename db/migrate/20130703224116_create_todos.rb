@@ -9,4 +9,3 @@ class CreateTodos < ActiveRecord::Migration
     end
   end
 end
-
