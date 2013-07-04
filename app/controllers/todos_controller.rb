@@ -53,6 +53,17 @@ class TodosController < ApplicationController
     end
   end
 
+  def toggle_complete
+    # change and save
+    @todo = Todo.find(params[:id])
+    @todo.toggle_completed!
+
+    respond_to do |format|
+      format.html { redirect_to todos_path }    #I'm guessing this should just return the view of all todos? Is this how you do that?
+      format.json { head :no_content }
+    end
+  end
+
   # PUT /todos/1
   # PUT /todos/1.json
   def update

@@ -2,21 +2,15 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Title</th>
-    <th>Order</th>
-    <th>Completed</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
 <% @todos.each do |todo| %>
   <tr>
-    <td><%= todo.title %></td>
-    <td><%= todo.order %></td>
-    <td><%= todo.completed %></td>
-    <td><%= link_to 'Show', todo %></td>
-    <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+    <td><%= link_to completed_message(todo), toggle_complete_todo_path(todo), method: :put %></td>
+    <td><%= link_to todo.title, edit_todo_path(todo) %></td>
     <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

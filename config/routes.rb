@@ -1,5 +1,11 @@
 TodoApp::Application.routes.draw do
-  resources :todos
+  resources :todos do
+    member do
+      put 'toggle_complete'
+    end
+  end
+
+
 
 
   # The priority is based upon order of creation:
@@ -18,10 +24,10 @@ TodoApp::Application.routes.draw do
 
   # Sample resource route with options:
   #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
+      # member do
+      #   get 'short'
+      #   post 'toggle'
+      # end
   #
   #     collection do
   #       get 'sold'
