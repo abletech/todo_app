@@ -20,7 +20,6 @@ class Todo < ActiveRecord::Base
     todo
   end
 
-
   def self.completed
     where(completed: true)
   end
