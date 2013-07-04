@@ -1,5 +1,5 @@
 class Todo < ActiveRecord::Base
-  attr_accessible :completed, :order, :title
+  attr_accessible :title
 
   validates :title, presence: true
   validates :order, numericality: {greater_than_or_equal_to: 0}, presence: true, uniqueness: true
@@ -12,4 +12,12 @@ class Todo < ActiveRecord::Base
     toggle_completed
     save!
   end
+
+  def self.create_and_initialise(params={})
+    todo = new(params)
+    todo.order = Todo.maximum("order") + 1
+    todo.completed = false
+    todo
+  end
+
 end
