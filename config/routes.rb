@@ -3,6 +3,11 @@ TodoApp::Application.routes.draw do
     member do
       put 'toggle_complete'
     end
+
+    collection do
+      get 'completed'
+      get 'active'
+    end
   end
 
 

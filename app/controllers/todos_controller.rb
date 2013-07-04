@@ -10,6 +10,28 @@ class TodosController < ApplicationController
     end
   end
 
+  # GET /completed
+  # GET /completed.json
+  def completed
+    @todos = Todo.completed
+
+    respond_to do |format|
+      format.html { render :index } # index.html.erb
+      format.json { render json: @todos }
+    end
+  end
+
+  # GET /active
+  # GET /active.json
+  def active
+    @todos = Todo.active
+
+    respond_to do |format|
+      format.html { render :index }# index.html.erb
+      format.json { render json: @todos }
+    end
+  end
+
   # GET /todos/1
   # GET /todos/1.json
   def show
